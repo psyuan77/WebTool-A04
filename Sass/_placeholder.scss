@@ -1,0 +1,34 @@
+/*Placeholder for bottom-article*/
+// Placeholder for reusable keyframe properties
+%fade-and-scale {
+  opacity: 1;
+  transform: scale(1);
+}
+
+%rotate-and-blur {
+  transform: scale(1.1) rotate(2deg);
+  filter: blur(2px) brightness(1.5);
+}
+
+%disappear {
+  opacity: 0;
+  transform: scale(0.8) rotate(-3deg);
+  filter: blur(5px) brightness(2);
+}
+/*Placeholder for footer and banner*/
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-row-center {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+%border-gray {
+  border-bottom: 1px solid rgb(141, 141, 141);
+  border-top: 1px solid rgb(141, 141, 141);
+}
