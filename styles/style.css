@@ -88,12 +88,12 @@ footer p {
     width: 100%;
     border-bottom: 1px solid rgb(141, 141, 141);
     border-top: 1px solid rgb(141, 141, 141);
-    background-color: var(--primary-color);
+    background-color: black;
     margin: 0;
   }
   .footer__title,
   .footer__person-name {
-    color: var(--text-color);
+    color: #f0ad4e;
   }
   .copyright {
     display: flex;
@@ -246,10 +246,12 @@ a {
   flex-direction: column;
   overflow: hidden;
   width: 200px;
+  display: none;
   position: fixed;
   top: 0;
   right: -250px;
   height: 100%;
+  width: 250px;
   background-color: white;
   transition: right 0.3s ease-in-out;
   z-index: 1;
@@ -259,11 +261,11 @@ a {
   display: flex;
   flex-direction: column;
 }
-#nav-bar ul li {
+#nav-bar li {
   justify-content: end;
   width: 100%;
 }
-#nav-bar ul li a {
+#nav-bar li a {
   display: flex;
   flex-direction: column;
   color: black;
@@ -274,17 +276,19 @@ a {
   padding: 14px 16px;
   text-decoration: none;
 }
-#nav-bar ul li a:hover {
+#nav-bar li a:hover {
   background-color: black;
   color: white;
 }
-#nav-bar #logo {
+
+#logo {
   height: 50px;
   width: 50px;
   margin-left: 10px;
 }
-#nav-bar .btn-menu {
-  background-color: black;
+
+.btn-menu {
+  background-color: white;
   border: none;
   margin: 10px;
   font-size: 18px;
@@ -303,13 +307,18 @@ main {
 }
 
 @media (min-width: 768px) {
-  #nav-bar .btn-menu {
+  .btn-menu {
     display: none;
   }
-  #nav-bar ul {
+  #nav-bar {
     position: relative;
+  }
+  #nav-bar ul {
+    list-style-type: none;
+    display: flex;
     flex-direction: row;
     width: calc(100% - 200px);
+    position: absolute;
     justify-content: end;
     margin-top: 0;
     right: 0;
@@ -334,11 +343,15 @@ main {
   }
 }
 @media (min-width: 1024px) {
+  #nav-bar {
+    position: relative;
+  }
   #nav-bar .btn-menu {
     display: none;
   }
   #nav-bar ul {
-    position: relative;
+    list-style-type: none;
+    display: flex;
     flex-direction: row;
     width: calc(100% - 200px);
     justify-content: end;
@@ -505,17 +518,18 @@ article:hover {
   display: flex;
   flex-direction: row;
 }
-.tag-row .row {
+
+.row {
   display: none;
 }
-.tag-row .row > div i[class*=bi-facebook] {
+.row > div i[class*=bi-facebook] {
   color: green;
   cursor: pointer;
 }
-.tag-row .row > div i[class*=bi-twitter] {
+.row > div i[class*=bi-twitter] {
   color: red;
 }
-.tag-row .row > div i[class*=bi-instagram] {
+.row > div i[class*=bi-instagram] {
   color: purple;
 }
 
@@ -532,7 +546,6 @@ article:hover {
   /* Starts at normal position */
   transition: opacity 4s ease, transform 2s ease;
   /* Animate both opacity and sliding */
-  /* When we want to slide it up and fade it out */
 }
 .container .fading {
   opacity: 0;
@@ -592,22 +605,31 @@ article:hover {
   }
 }
 @keyframes shakeEffect {
-  0%, 100% {
+  0% {
     transform: translateX(0);
   }
-  25%, 75% {
+  25% {
     transform: translateX(-40px);
   }
   50% {
     transform: translateX(40px);
   }
+  75% {
+    transform: translateX(-40px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 @keyframes heartbeat {
-  0%, 100% {
+  0% {
     transform: scale(1);
   }
   50% {
     transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 @keyframes typing {
@@ -698,7 +720,7 @@ body {
   body {
     display: grid;
     grid-template-rows: 0.3fr 10.2fr 3fr;
-    font-family: var(--font-family);
+    font-family: GeoEditMedium, Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic, Helvetica, Arial, sans-serif;
   }
 }
 @media (min-width: 1024px) {

@@ -50,13 +50,13 @@ footer p {
     width: 100%;
     border-bottom: 1px solid rgb(141, 141, 141);
     border-top: 1px solid rgb(141, 141, 141);
-    background-color: var(--primary-color);
+    background-color: $color-dark;
     margin: 0;
   }
 
   .footer__title,
   .footer__person-name {
-    color: var(--text-color);
+    color: $color-highlight;
   }
 
   .copyright {
@@ -71,12 +71,10 @@ footer p {
     background-color: rgb(60, 60, 60);
   }
 
-  //Inheritance with @extend
   .copyright-text {
     color: rgb(223, 221, 221);
     padding-right: 0.2rem;
   }
-  //Inheritance with @extend
   .footer-logo {
     padding: 0;
     width: 50px;

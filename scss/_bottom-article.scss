@@ -155,23 +155,22 @@ article:hover {
     display: flex;
     flex-direction: row;
   }
+}
+.row {
+  display: none;
 
-  .row {
-    display: none;
+  > div {
+    i[class*='bi-facebook'] {
+      color: green;
+      cursor: pointer;
+    }
 
-    > div {
-      i[class*='bi-facebook'] {
-        color: green;
-        cursor: pointer;
-      }
+    i[class*='bi-twitter'] {
+      color: red;
+    }
 
-      i[class*='bi-twitter'] {
-        color: red;
-      }
-
-      i[class*='bi-instagram'] {
-        color: purple;
-      }
+    i[class*='bi-instagram'] {
+      color: purple;
     }
   }
 }
@@ -189,8 +188,6 @@ article:hover {
   /* Starts at normal position */
   transition: opacity 4s ease, transform 2s ease;
   /* Animate both opacity and sliding */
-
-  /* When we want to slide it up and fade it out */
   .fading {
     opacity: 0;
     /* Fully fade out */
@@ -233,7 +230,6 @@ article:hover {
 }
 
 /* Define fire-like animation */
-// Using placeholder
 @keyframes fireDisappear {
   0% {
     opacity: 1;
@@ -255,26 +251,38 @@ article:hover {
 
 // Define reusable animation effects
 @keyframes shakeEffect {
-  0%,
-  100% {
+  0% {
     transform: translateX(0);
   }
-  25%,
+
+  25% {
+    transform: translateX(-40px);
+  }
+
+  50% {
+    transform: translateX(40px);
+  }
+
   75% {
     transform: translateX(-40px);
   }
-  50% {
-    transform: translateX(40px);
+
+  100% {
+    transform: translateX(0);
   }
 }
 
 @keyframes heartbeat {
-  0%,
-  100% {
+  0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }
 

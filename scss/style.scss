@@ -29,7 +29,7 @@ body {
   body {
     display: grid;
     grid-template-rows: 0.3fr 10.2fr 3fr;
-    font-family: var(--font-family);
+    font-family: $body-font;
   }
 }
 
