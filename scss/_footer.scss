@@ -1,6 +1,6 @@
-@use 'variables';
-@use 'placeholder';
-@use 'mixins';
+@use 'variables' as *;
+@use 'placeholder' as *;
+@use 'mixins' as *;
 
 footer p {
   color: rgb(188, 184, 184);
@@ -48,7 +48,8 @@ footer p {
     justify-content: space-between;
     padding: 1rem;
     width: 100%;
-    @extend %border-gray;
+    border-bottom: 1px solid rgb(141, 141, 141);
+    border-top: 1px solid rgb(141, 141, 141);
     background-color: var(--primary-color);
     margin: 0;
   }
@@ -72,11 +73,12 @@ footer p {
 
   //Inheritance with @extend
   .copyright-text {
-    @extend .copyright-text;
+    color: rgb(223, 221, 221);
+    padding-right: 0.2rem;
   }
   //Inheritance with @extend
   .footer-logo {
-    @extend .footer-logo;
-    margin-top: 1rem;
+    padding: 0;
+    width: 50px;
   }
 }

@@ -1,4 +1,6 @@
-@use 'variables';
+@use 'variables' as *;
+@use 'placeholder' as *;
+@use 'mixins' as *;
 
 /* Navbar styles */
 #nav-bar {

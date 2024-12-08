@@ -1,13 +1,13 @@
-@use 'variables';
+@use 'variables' as *;
 @use 'reset';
 @use 'header';
 @use 'footer';
-@use 'mixins';
+@use 'mixins' as *;
 @use 'left-list';
 @use 'right-article';
 @use 'nav';
 @use 'bottom-article';
-@use 'placeholder';
+@use 'placeholder' as *;
 
 body {
   display: grid;
