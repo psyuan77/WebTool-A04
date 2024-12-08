@@ -1,0 +1,361 @@
+@use 'variables' as *;
+@use 'placeholder' as *;
+@use 'mixins' as *;
+
+img {
+  width: 100%;
+  border: 0;
+}
+
+article {
+  cursor: pointer;
+}
+
+article:hover {
+  transform: scale(0.98);
+  cursor: pointer;
+}
+
+.j-title + .p-excerpt {
+  font-size: $font-size-large;
+}
+
+//Nesting and the Parent
+.bottom-articles {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  height: 2rem;
+  gap: 1rem;
+  article {
+    display: grid;
+    grid-template-rows: 2fr, 1.5;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+    text {
+      display: grid;
+      grid-template-rows: 1fr 2fr 1fr;
+    }
+  }
+}
+
+.read-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+//Nesting and the Parent (&) Selector
+.readMore {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  border: 0;
+  position: relative;
+  cursor: pointer;
+  .bar {
+    display: block;
+    width: 30px;
+    height: 1.5px;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+    /* Add transition for smooth animation */
+  }
+  &.active {
+    .bar:first-child {
+      transform: rotate(45deg);
+      position: absolute;
+    }
+    .bar:nth-child(2),
+    .bar:nth-child(3) {
+      opacity: 0;
+      /* Hide the middle bar */
+    }
+    .bar:last-child {
+      transform: rotate(-45deg);
+      position: absolute;
+    }
+  }
+}
+
+/* Transition for the bars when no active state */
+.readMore .bar {
+  transition: all 0.3s ease-in-out;
+}
+
+.excerpt {
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  line-height: 1.273;
+}
+
+.category,
+.read-bar {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 1.5;
+}
+
+.bottom-articles article img {
+  width: 100%;
+  height: 22.7rem;
+  object-fit: cover;
+}
+
+/* Make the hover effect visible for debugging */
+#enviroment,
+#science {
+  > span:hover {
+    background-color: $color-highlight;
+  }
+
+  &:hover ~ a {
+    #page-category {
+      background-color: green;
+    }
+  }
+}
+
+.detail {
+  padding: 1rem;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 3rem;
+
+  img {
+    object-fit: cover;
+  }
+
+  .description-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    > div > div > a {
+      color: $color-highlight;
+    }
+  }
+
+  > div > div > div > a {
+    color: $color-highlight;
+  }
+}
+
+.category:hover {
+  background-color: $color-highlight;
+}
+
+.tag-row {
+  .tag {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .row {
+    display: none;
+
+    > div {
+      i[class*='bi-facebook'] {
+        color: green;
+        cursor: pointer;
+      }
+
+      i[class*='bi-twitter'] {
+        color: red;
+      }
+
+      i[class*='bi-instagram'] {
+        color: purple;
+      }
+    }
+  }
+}
+
+.other-image {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Initially, the container is fully visible and positioned normally */
+.container {
+  opacity: 1;
+  transform: translateY(0);
+  /* Starts at normal position */
+  transition: opacity 4s ease, transform 2s ease;
+  /* Animate both opacity and sliding */
+
+  /* When we want to slide it up and fade it out */
+  .fading {
+    opacity: 0;
+    /* Fully fade out */
+    transform: translateY(-600px);
+    /* Slide up by 50px, adjust this value as needed */
+  }
+}
+
+.page-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+/* Initially, no animation is applied */
+.content {
+  transition: all 0.5s ease;
+}
+
+/* Add the animation when the class is applied */
+.fire-effect {
+  animation: fireDisappear 2s forwards;
+}
+
+/* Initial image style */
+.description img {
+  transition: transform 2s ease, opacity 2s ease;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.typewriter {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid black;
+  width: 0;
+  animation: typing 4s steps(40) 1s forwards;
+}
+
+/* Define fire-like animation */
+// Using placeholder
+@keyframes fireDisappear {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1) rotate(2deg);
+    filter: blur(2px) brightness(1.5);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-3deg);
+    filter: blur(5px) brightness(2);
+  }
+}
+
+// Define reusable animation effects
+@keyframes shakeEffect {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25%,
+  75% {
+    transform: translateX(-40px);
+  }
+  50% {
+    transform: translateX(40px);
+  }
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+#m-share {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+// Using mixin for media queries for 'md' (min-width: 1024px)
+@include media-query('md') {
+  .bottom-articles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .bar {
+    display: block;
+    width: 30px;
+    height: 1.5px;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+    /* Add transition for smooth animation */
+  }
+
+  .category,
+  .read-bar {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    line-height: 1.5;
+  }
+
+  .bottom-articles article img {
+    width: 100%;
+    height: 22.7rem;
+    object-fit: cover;
+  }
+
+  .detail {
+    display: grid;
+    grid-template-rows: 1fr 10fr;
+    width: 80%;
+    align-items: center;
+    padding-left: 20%;
+    padding-top: 0;
+  }
+
+  .description {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    .row {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .envir-author {
+    padding-top: 4rem;
+  }
+
+  .other-image {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 25rem;
+  }
+}

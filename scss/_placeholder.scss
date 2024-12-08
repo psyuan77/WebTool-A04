@@ -1,0 +1,17 @@
+/*Placeholder for footer and banner*/
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-row-center {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+%border-gray {
+  border-bottom: 1px solid rgb(141, 141, 141);
+  border-top: 1px solid rgb(141, 141, 141);
+}

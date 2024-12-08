@@ -1,0 +1,157 @@
+@use 'variables' as *;
+@use 'placeholder' as *;
+@use 'mixins' as *;
+
+/* Navbar styles */
+#nav-bar {
+  display: flex;
+  justify-content: space-between;
+
+  ul {
+    list-style-type: none;
+    margin-top: 108px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    height: 100%;
+    background-color: $color-light;
+    transition: right 0.3s ease-in-out;
+    z-index: 1;
+
+    &.slide-out {
+      right: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    li {
+      justify-content: end;
+      width: 100%;
+
+      a {
+        display: flex;
+        flex-direction: column;
+        color: $color-dark;
+        background-color: $color-light;
+        text-align: left;
+        font-size: $font-size-medium;
+        font-weight: bold;
+        padding: 14px 16px;
+        text-decoration: none;
+
+        &:hover {
+          background-color: $color-dark;
+          color: $color-light;
+        }
+      }
+    }
+  }
+
+  #logo {
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+  }
+
+  .btn-menu {
+    background-color: $color-dark;
+    border: none;
+    margin: 10px;
+    font-size: $font-size-medium;
+    font-weight: bold;
+    padding-right: 15px;
+    display: block;
+    width: 99%;
+    text-align: end;
+    position: absolute;
+    background-color: transparent;
+    z-index: 10;
+  }
+}
+
+main {
+  transition: margin-right 0.3s;
+}
+
+// Responsive styles using media query mixins
+
+@include media-query('sm') {
+  #nav-bar {
+    .btn-menu {
+      display: none;
+    }
+
+    ul {
+      position: relative;
+      flex-direction: row;
+      width: calc(100% - 200px);
+      justify-content: end;
+      margin-top: 0;
+      right: 0;
+    }
+
+    li {
+      display: inline-block;
+      width: max-content;
+    }
+
+    li a {
+      display: block;
+      color: $color-dark;
+      background-color: $color-light;
+      text-align: center;
+      font-size: $font-size-medium;
+      font-weight: bold;
+      padding: 14px 16px;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $color-dark;
+        color: $color-light;
+      }
+    }
+  }
+}
+
+@include media-query('md') {
+  #nav-bar {
+    .btn-menu {
+      display: none;
+    }
+
+    ul {
+      position: relative;
+      flex-direction: row;
+      width: calc(100% - 200px);
+      justify-content: end;
+      margin-top: 0;
+      right: 0;
+    }
+
+    li {
+      display: inline-block;
+      width: max-content;
+    }
+
+    li a {
+      display: block;
+      color: $color-dark;
+      background-color: $color-light;
+      text-align: center;
+      font-size: $font-size-medium;
+      font-weight: bold;
+      padding: 14px 16px;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $color-dark;
+        color: $color-light;
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+@use 'variables' as *;
+@use 'placeholder' as *;
+@use 'mixins' as *;
+
+footer p {
+  color: rgb(188, 184, 184);
+}
+
+// Using placeholder
+.footer__container {
+  @extend %flex-column;
+  justify-content: end;
+  padding: 1rem;
+  width: 100%;
+  @extend %border-gray;
+  background-color: $color-dark;
+  gap: 0.7rem;
+}
+
+.footer__title,
+.footer__person-name {
+  color: $color-highlight;
+}
+
+.copyright {
+  @extend %flex-row-center;
+  gap: 1.8rem;
+  padding: 0.5rem 0.5rem 0rem 0rem;
+  font-size: 0.9rem;
+  background-color: rgb(60, 60, 60);
+}
+
+.copyright-text {
+  color: rgb(223, 221, 221);
+  padding-right: 0.2rem;
+}
+
+.footer-logo {
+  padding: 0;
+  width: 50px;
+}
+
+// Using mixin for media queries for 'md' (min-width: 1024px)
+@include media-query('md') {
+  .footer__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid rgb(141, 141, 141);
+    border-top: 1px solid rgb(141, 141, 141);
+    background-color: var(--primary-color);
+    margin: 0;
+  }
+
+  .footer__title,
+  .footer__person-name {
+    color: var(--text-color);
+  }
+
+  .copyright {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-left: 0.5rem;
+    padding-right: 1rem;
+    font-size: 0.9rem;
+    height: 60px;
+    background-color: rgb(60, 60, 60);
+  }
+
+  //Inheritance with @extend
+  .copyright-text {
+    color: rgb(223, 221, 221);
+    padding-right: 0.2rem;
+  }
+  //Inheritance with @extend
+  .footer-logo {
+    padding: 0;
+    width: 50px;
+  }
+}
